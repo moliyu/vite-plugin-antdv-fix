@@ -4,14 +4,14 @@ import type { Options } from './types'
 
 const pluginName = 'vite-plugin-antdv-fix'
 let fixPath = [
-  'calendar/index.js',
-  'date-picker/createPicker.js',
-  'date-picker/RangePicker.js',
-  'date-picker/WeekPicker.js',
+  // 'calendar/index.js',
+  // 'date-picker/createPicker.js',
+  // 'date-picker/RangePicker.js',
+  // 'date-picker/WeekPicker.js',
   '_util/moment-util.js',
   'locale-provider/index.js',
-  'statistic/Countdown.js',
-  'statistic/utils.js'
+  // 'statistic/Countdown.js',
+  // 'statistic/utils.js'
 ]
 const cache: Map<string, string> = new Map
 
@@ -43,9 +43,9 @@ const antdvFix = (options: Options = {}): Plugin => {
                   const source = fs.readFileSync(path, 'utf-8')
                   contents = source.replace(`import * as moment`, 'import moment')
                   cache.set(path, contents)
-                  return {
-                    contents
-                  }
+                }
+                return {
+                  contents
                 }
               } else {
                 return {
