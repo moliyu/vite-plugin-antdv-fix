@@ -4,7 +4,7 @@ import type { Options } from './types'
 
 const pluginName = 'vite-plugin-antdv-fix'
 let fixPath = [
-  // 'calendar/index.js',
+  'calendar/index.js',
   // 'date-picker/createPicker.js',
   // 'date-picker/RangePicker.js',
   // 'date-picker/WeekPicker.js',
@@ -70,7 +70,10 @@ const antdvFix = (options: Options = {}): Plugin => {
       if (fixPath.some(item => id.endsWith(item))) {
         code = code.replace(`import * as moment`, 'import moment')
       }
-      return code
+      return {
+        code,
+        map: null
+      }
     }
   }
 }
