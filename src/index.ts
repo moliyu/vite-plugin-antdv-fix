@@ -47,10 +47,6 @@ const antdvFix = (options: Options = {}): Plugin => {
                 return {
                   contents
                 }
-              } else {
-                return {
-                  loader: 'js',
-                }
               }
             }
           )
